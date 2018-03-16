@@ -1,0 +1,56 @@
+{
+  "name": "tslint-config-scc",
+  "version": "0.1.0",
+  "description": "Code style checking for Sequoia Capital China Typescript repositories.",
+  "keywords": [
+    "tslint",
+    "tslintconfig",
+    "tslintplugin",
+    "tslint-config",
+    "tslint-config-scc",
+    "sequoiacap"
+  ],
+  "main": "./base",
+  "scripts": {
+    "prebuild": "yarn run clean",
+    "clean": "rimraf build rules customRules '*.js'",
+    "build": "tsc",
+    "predist": "yarn run build",
+    "dist": "cp -R build/** .",
+    "postpublish": "yarn run clean",
+    "prepublish": "yarn run dist",
+    "prelint": "yarn run build",
+    "lint": "tslint './src/**/*.{ts,tsx}' --project ./tsconfig.json",
+    "pretest": "yarn run build",
+    "test": "scripts/customRulesTests.sh",
+    "check": "npm-run-all test lint clean",
+    "missing-rules": "ts-node --project ./scripts/tsconfig.json scripts/missingRules.ts"
+  },
+  "homepage": "https://github.com/sequoia-china/tslint-config-scc#readme",
+  "repository": "https://github.com/sequoia-china/tslint-config-scc",
+  "author": "Boris DIng <lding@sequoiacap.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sequoia-china/tslint-config-scc/issues"
+  },
+  "devDependencies": {
+    "@types/chalk": "^0.4.31",
+    "@types/jsdom": "^11.0.0",
+    "@types/node": "^9.4.7",
+    "chalk": "^1.1.3",
+    "isomorphic-fetch": "^2.2.1",
+    "jsdom": "^11.0.0",
+    "node-emoji": "^1.5.1",
+    "npm-run-all": "^4.0.2",
+    "rimraf": "^2.6.0",
+    "ts-node": "^3.0.6",
+    "tslint": "^^5.7.0",
+    "typescript": "^2.7.2"
+  },
+  "peerDependencies": {
+    "tslint": "^5.7.0"
+  },
+  "dependencies": {
+    "tslint-react": "^3.2.0"
+  }
+}

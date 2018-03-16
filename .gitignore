@@ -1,0 +1,7 @@
+build
+node_modules
+/rules
+/customRules
+/*.js
+.DS_STORE
+*.log
