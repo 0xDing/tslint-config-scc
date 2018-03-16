@@ -7,7 +7,7 @@ Code style checking for Sequoia Capital China Typescript repositories. Forked fr
 Install [TSlint](https://palantir.github.io/tslint/) and `tslint-config-scc`:
 
 ```
-yarn add --dev tslint tslint-config-shopify
+yarn add --dev tslint tslint-config-scc
 ```
 
 
